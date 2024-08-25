@@ -1,6 +1,7 @@
 apply plugin: "com.android.application"
 apply plugin: "org.jetbrains.kotlin.android"
 apply plugin: "com.facebook.react"
+apply from: file("../../node_modules/react-native-vector-icons/fonts.gradle")
 
 /**
  * This is the configuration block to customize your React Native Android app.
@@ -53,7 +54,9 @@ react {
     /* Autolinking */
     autolinkLibrariesWithApp()
 }
-
+project.ext.vectoricons = [
+    iconFontNames: [ 'MaterialIcons.ttf', 'EvilIcons.ttf' ,"Entypo.ttf","Feather.ttf","FontAwesome.ttf","FontAwesome5.ttf","FontAwesome6.ttf","Fontisto.ttf","Ionicons.ttf","MaterialCommunityIcons.ttf","SimpleLineIcons.ttf","Octicons.ttf","Zocial.ttf","AntDesign.ttf"] // Specify font files
+]
 /**
  * Set this to true to Run Proguard on Release builds to minify the Java bytecode.
  */
