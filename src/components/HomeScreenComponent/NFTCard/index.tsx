@@ -39,17 +39,17 @@ const NFTCard: React.FC<CompProps> = props => {
       />
       <Pressable
         onPress={() => {
-          if (!bookmarked) {
+          if (!isBookmarked) {
             dispatch(addToBookmark(props.data));
+            // setBookmarked(!bookmarked);
           } else {
             dispatch(removeFromBookmark(props?.data?.nft_data?.token_id));
           }
-          setBookmarked(!bookmarked);
         }}
         style={styles.bookMarkWrapper}>
         <Icon
           size={30}
-          name={bookmarked ? 'bookmark' : 'bookmark-outline'}
+          name={isBookmarked ? 'bookmark' : 'bookmark-outline'}
           color={colors.white}
         />
       </Pressable>
