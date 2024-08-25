@@ -1,13 +1,14 @@
 import axios from 'axios';
+import {CONVALENT_API_URL, API_TOKEN} from '@env';
 
 export const getNFTLists = async (
   contractAddress: string,
   pageSize: number,
   page: number,
 ) => {
-  const TOKEN = 'cqt_rQ4rjPvbKdDRJCTVHyDWxdhH4hPp';
+  const TOKEN = API_TOKEN;
   const response = await axios.get(
-    `https://api.covalenthq.com/v1/eth-mainnet/nft/${contractAddress}/metadata/?page-size=${pageSize}&page-number=${page}`,
+    `${CONVALENT_API_URL}/${contractAddress}/metadata/?page-size=${pageSize}&page-number=${page}`,
     {
       auth: {
         username: TOKEN,

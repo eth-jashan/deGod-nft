@@ -28,15 +28,19 @@ const HomeScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
       <Header isLogo={true} isProfile={true} />
-      {loading ? <ActivityIndicator size="large" color={'white'} /> : null}
+      {loading && nftList?.length === 0 ? (
+        <ActivityIndicator size="large" color={'white'} />
+      ) : null}
       {nftList?.length > 0 ? (
         <FlatList
           keyExtractor={(_, i) => i.toString()}
           data={nftList}
           renderItem={({item, index}) => <NFTCard data={item} />}
           onEndReached={() => {
-            dispatch(getPaginatedNFTList(pageNumber));
-            setPageNumber(prev => prev + 1);
+            if (nftList.length < 8943) {
+              dispatch(getPaginatedNFTList(pageNumber));
+              setPageNumber(prev => prev + 1);
+            }
           }}
           onEndReachedThreshold={0.3}
         />
