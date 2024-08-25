@@ -1,5 +1,5 @@
 import React, {useCallback, useState} from 'react';
-import {View, StyleSheet, FlatList} from 'react-native';
+import {View, StyleSheet, FlatList, ActivityIndicator} from 'react-native';
 import {colors} from '../../theme/colors';
 import Header from '../../components/Common/Header';
 import NFTCard from '../../components/HomeScreenComponent/NFTCard';
@@ -13,18 +13,22 @@ import {getPaginatedNFTList} from '../../store/actions/nft';
 
 const HomeScreen = ({navigation}) => {
   const [pageNumber, setPageNumber] = useState(0);
+  const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
   const nftList = useSelector(state => state.nft.list);
 
   useFocusEffect(
     useCallback(() => {
+      setLoading(true);
       dispatch(getPaginatedNFTList(pageNumber));
       setPageNumber(prev => prev + 1);
+      setLoading(false);
     }, []),
   );
   return (
     <View style={styles.container}>
       <Header isLogo={true} isProfile={true} />
+      {loading ? <ActivityIndicator size="large" color={'white'} /> : null}
       {nftList?.length > 0 ? (
         <FlatList
           keyExtractor={(_, i) => i.toString()}

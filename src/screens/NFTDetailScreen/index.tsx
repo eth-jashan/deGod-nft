@@ -39,7 +39,7 @@ const NFTDetailScreen: React.FC<ScreenProps> = ({route, navigation}) => {
           data={nftInfo?.nft_data?.external_data?.attributes}
           contentContainerStyle={{paddingLeft: 12}}
           horizontal
-          renderItem={({item, index}) => <TraitCard data={item} />}
+          renderItem={({item}) => <TraitCard data={item} />}
         />
       ) : null}
     </ScrollView>

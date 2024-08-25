@@ -24,7 +24,6 @@ const NFTCard: React.FC<CompProps> = props => {
       ? true
       : false;
 
-  const [bookmarked, setBookmarked] = useState(isBookmarked);
   const dispatch = useDispatch();
   const navigation = useNavigation();
   return (
