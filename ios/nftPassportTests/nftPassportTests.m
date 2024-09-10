@@ -7,11 +7,11 @@
 #define TIMEOUT_SECONDS 600
 #define TEXT_TO_LOOK_FOR @"Welcome to React"
 
-@interface nftPassportTests : XCTestCase
+@interface xyzAiTests : XCTestCase
 
 @end
 
-@implementation nftPassportTests
+@implementation xyzAiTests
 
 - (BOOL)findSubviewInView:(UIView *)view matching:(BOOL (^)(UIView *view))test
 {
