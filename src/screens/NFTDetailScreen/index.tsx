@@ -49,7 +49,7 @@ const NFTDetailScreen: React.FC<ScreenProps> = ({route, navigation}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.black,
+    // backgroundColor: colors.black,
   },
   headerTitle: {fontWeight: '700', color: colors.white, fontSize: 24},
   tokenIdStyle: {fontWeight: 'bold', color: colors.white, fontSize: 22},
